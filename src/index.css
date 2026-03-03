@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif SC", serif;
+  --font-calligraphy: "ZCOOL XiaoWei", serif;
+
+  /* Modern Ink Wash Palette */
+  --color-ink-black: #0a0a0a;
+  --color-ink-dark: #1a1a1a;
+  --color-paper-white: #f5f0e8;
+  --color-paper-dark: #e8e0d0;
+  --color-zhu-red: #c53030;
+  --color-zhu-red-hover: #e53e3e;
+  --color-bronze: #4a5568;
+}
+
+@layer base {
+  body {
+    @apply bg-ink-black text-paper-white font-serif antialiased;
+  }
+}
+
+@layer utilities {
+
+  /* Ink Wash Floating Animation */
+  @keyframes inkFloat {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.4;
+    }
+
+    33% {
+      transform: translate(50px, -40px) scale(1.1);
+      opacity: 0.6;
+    }
+
+    66% {
+      transform: translate(-30px, 20px) scale(0.9);
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.4;
+    }
+  }
+
+  /* Rain Animation */
+  @keyframes rainFall {
+    0% {
+      transform: translateY(-100vh) translateX(0);
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 0.4;
+    }
+
+    90% {
+      opacity: 0.4;
+    }
+
+    100% {
+      transform: translateY(100vh) translateX(20px);
+      opacity: 0;
+    }
+  }
+
+  /* Calligraphy Brush Reveal */
+  @keyframes charReveal {
+    0% {
+      transform: scaleY(0.3);
+      filter: blur(8px);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scaleY(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  /* Seal Stamp Bounce */
+  @keyframes sealStamp {
+    0% {
+      transform: scale(2.5) rotate(-15deg);
+      opacity: 0;
+    }
+
+    70% {
+      transform: scale(0.9) rotate(5deg);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1) rotate(3deg);
+      opacity: 1;
+    }
+  }
+
+  /* Ink Diffusion for Seal */
+  @keyframes inkDiffuse {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+      filter: blur(0);
+    }
+
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+      filter: blur(20px);
+    }
+  }
+
+  /* Word by Word Narrative Reveal */
+  @keyframes wordReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-ink-1 {
+    animation: inkFloat 20s ease-in-out infinite;
+  }
+
+  .animate-ink-2 {
+    animation: inkFloat 25s ease-in-out infinite reverse;
+  }
+
+  .animate-ink-3 {
+    animation: inkFloat 18s ease-in-out infinite;
+    animation-delay: -5s;
+  }
+
+  .rain-drop {
+    position: absolute;
+    background: linear-gradient(transparent, rgba(245, 240, 232, 0.2));
+    width: 1px;
+    pointer-events: none;
+  }
+}
